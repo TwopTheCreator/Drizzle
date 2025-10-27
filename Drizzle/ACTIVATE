@@ -8,10 +8,10 @@ log_level="verbose"
 hot_reload=true
 
 [DRIZZLE.PATHS]
-.devrc -crfolder -out "./drizzle/src"
-.devrc -crfolder -out "./drizzle/build"
-.devrc -crfolder -out "./drizzle/logs"
-.devrc -crfolder -out "./drizzle/temp"
+.devrc -crfolder -out "./drizzle/src" # create src path for the src of the project created using drizzle.
+.devrc -crfolder -out "./drizzle/build" # create a build path for the build of the project created using drizzle
+.devrc -crfolder -out "./drizzle/logs" # create a logs path for the logs of the project created using drizzle
+.devrc -crfolder -out "./drizzle/temp" # create a temp path for the temp files of the project created using drizzle.
 
 [DRIZZLE.SETTINGS]
 port=3000
