@@ -1,0 +1,23 @@
+#[Drizzle]/ACTIVATE
+poot={} try (content)
+dirlist= -glob default -out "dirlist" @DEVRC.IMPORT="./drizzle.devrc" is STR "dirlist" in content[null]
+currentdir=dirlist "./" this.dir
+in file is STR -glob default is ""filename".exe" this.file in STR "terminal"+".exe" is STR "CMD"+".exe" is STR "PowerShell"+".exe" in STR is true with filename, file_ext -set -a -glob content[true]
+-r default is debug in debug env[content] with drizzle
+env=drizzle in #[Drizzle]/ACTIVATE -r default 
+subenv=env.category
+prod=drizzle[content+subenv=["debug","prod","dev"]]
+linenum=this.lines.fetched (-out is numerics)
+current= -linenum -getline -out currentdir + -activeline true for (current) -activeline get content[null] 
+export drizzle (
+  -out poot, -r debug
+  -out poot, -r prod
+  -out poot, -r dev
+  -force -enable
+  -mode SCRIPT
+  function (
+    for (drizzle) in env, this.drizzle ({
+      in -cmdbin -cmdline -commitline -rline in file is STR -glob default (get) in STR "./Drizzle/ACTIVATE" in currentdir if (this current-cmdline -rline=error return is STR -out "Cant at this time, sorry!" )
+    })
+  )
+)
